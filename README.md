@@ -1,2 +1,2 @@
 # Hangman
-To develop some hangman code. Compatibale only with codehs javascript console.
+To develop some hangman code. Compatible only with CodeHS JavaScript console.
