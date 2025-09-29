@@ -1,0 +1,267 @@
+
+public class MyProgram extends ConsoleProgram
+{
+    
+    public void run() 
+    {
+        
+        //choses word to guess
+        String compliedWords = "compromise compartment willpower secular bomber proportion foster perforate flexible welcome precision element qualified headquarters continental summary cinema girlfriend captivate forecast underline staircase snatch tender unlike tactic devote dictate electronics perceive reception laundry grimace amputate content telephone lighter general snuggle generate escape nightmare character situation freshman warrant daughter president payment exploration strikebreaker dilute offspring producer medicine contrary freshman graphic legislature legend resignation distributor competition qualify exempt double cereal parameter advertise location sensitive paralyzed peasant interest transaction presidential prefer football reinforce healthy helicopter rotate pleasure capital concrete favour vessel monstrous banner continuation monster notebook medium incredible consider rotten participate identification charismatic experiment extraterrestrial consider intensify hammer freedom suggest pattern efflux assembly honest representative payment labour association freshman ignorance lawyer kidney finish jungle shadow confrontation variable course disagree banner animal thoughtful stadium crutch history pioneer narrow pastel vacuum facility kidnap appreciate supply photograph carbon deserve costume reputation grounds customer attraction thanks incident initial indirect defend building counter plaintiff global communication salesperson comedy essential overlook overwhelm assumption exchange leaflet behead thoughtful replacement fiction housing notice revise distribute cooperative private facade government birthday factor assault dramatic exemption primary headquarters compartment pledge undertake silver fossil pyramid reinforce rabbit debate employee forbid ethics reserve perfume speed football;";
+        String[] arrayWords = compliedWords.split(" ");
+        String stringWord = arrayWords[(int)(Math.random()*200)];
+        String[] word = new String[stringWord.length()];
+        for(int i = 0; i<stringWord.length(); i++){
+            word[i] = String.valueOf(stringWord.charAt(i));
+        }
+        
+        //sets up variables to store guesses
+            //display: - - -'s beneath gallows
+        String[] display = new String[word.length];
+        for(int i = 0; i<word.length; i++){
+            display[i] = "-";
+            }
+            //wrongGuesses: incorrectly guessed letters
+        String[] wrongGuesses = new String[7];
+        for(int i = 0; i<7; i++){
+            wrongGuesses[i] = " ";
+            }
+            //wrongGuessNum: number of incorrect guesses
+        int wrongGuessNum = 0;
+        
+        //setup
+        System.out.println("\n"+
+        "  _____\n"+
+        "  |   |\n"+
+        "      |\n"+
+        "      |\n"+
+        "      |\n"+
+        "______|_\n");
+        for (int i=0; i<word.length;i++){
+            System.out.print(" ");
+            System.out.print(display[i]);
+            System.out.print(" ");
+        }
+        System.out.println("\n");
+        
+        
+        
+        //GAME LOOP
+        boolean gameRun = true;
+        while (gameRun){
+        
+        //takes input and matches letter
+        String guess = readLine("Guess a letter (lowercase): ");
+        int strike = 0; //so a wrong guess is only counted when there isn't a single correct letter in there.
+        for( int i = 0; i<word.length; i++){
+            if(guess.equals(word[i])){
+                //changes display variable
+                display[i] = guess;
+            }
+            else{
+                strike++;
+                if(strike == word.length){
+                    wrongGuesses[wrongGuessNum] = guess;
+                    wrongGuessNum++;
+                }
+            }
+        }
+        
+        //UPDATES GAME BOARD
+        
+            /* BASIC BOARD:
+            
+        System.out.print("\n"+
+        "  _____    Wrong guesses: " +
+        "\n" +
+        "  |   |    ");
+        for(String index: wrongGuesses){System.out.print(index);}
+        System.out.println(
+        "\n"+
+        "      |\n"+
+        "      |\n"+
+        "      |\n"+
+        "______|_\n");
+        for (int i=0; i<word.length;i++){
+            System.out.print(" ");
+            System.out.print(display[i]);
+            System.out.print(" ");
+        }
+        System.out.println("\n");
+        
+        */
+        
+        //empty
+        if(wrongGuessNum == 0){
+            System.out.print("\n"+
+            "  _____    Wrong guesses: " +
+            "\n" +
+            "  |   |    ");
+            for(String index: wrongGuesses){System.out.print(index);}
+            System.out.println(
+            "\n"+
+            "      |\n"+
+            "      |\n"+
+            "      |\n"+
+            "______|_\n");
+            for (int i=0; i<word.length;i++){
+                System.out.print(" ");
+                System.out.print(display[i]);
+                System.out.print(" ");
+            }
+            System.out.println("\n");
+        }
+        
+        
+        //head
+        if(wrongGuessNum == 1){
+            System.out.print("\n"+
+            "  _____    Wrong guesses: " +
+            "\n" +
+            "  |   |    ");
+            for(String index: wrongGuesses){System.out.print(index);}
+            System.out.println(
+            "\n"+
+            "  o   |\n"+
+            "      |\n"+
+            "      |\n"+
+            "______|_\n");
+            for (int i=0; i<word.length;i++){
+                System.out.print(" ");
+                System.out.print(display[i]);
+                System.out.print(" ");
+            }
+            System.out.println("\n");
+        }
+        
+        //head, chest
+        if(wrongGuessNum == 2){
+            System.out.print("\n"+
+            "  _____    Wrong guesses: " +
+            "\n" +
+            "  |   |    ");
+            for(String index: wrongGuesses){System.out.print(index);}
+            System.out.println(
+            "\n"+
+            "  o   |\n"+
+            "  |   |\n"+
+            "      |\n"+
+            "______|_\n");
+            for (int i=0; i<word.length;i++){
+                System.out.print(" ");
+                System.out.print(display[i]);
+                System.out.print(" ");
+            }
+            System.out.println("\n");
+        }
+        
+        //head, chest, arm 1
+        if(wrongGuessNum == 3){
+            System.out.print("\n"+
+            "  _____    Wrong guesses: " +
+            "\n" +
+            "  |   |    ");
+            for(String index: wrongGuesses){System.out.print(index);}
+            System.out.println(
+            "\n"+
+            "  o   |\n"+
+            " /|   |\n"+
+            "      |\n"+
+            "______|_\n");
+            for (int i=0; i<word.length;i++){
+                System.out.print(" ");
+                System.out.print(display[i]);
+                System.out.print(" ");
+            }
+            System.out.println("\n"); 
+        }
+        
+        //head, chest, arm 1, arm 2
+        if(wrongGuessNum == 4){
+            System.out.print("\n"+
+            "  _____    Wrong guesses: " +
+            "\n" +
+            "  |   |    ");
+            for(String index: wrongGuesses){System.out.print(index);}
+            System.out.println(
+            "\n"+
+            "  o   |\n"+
+            " /|\\  |\n"+
+            "      |\n"+
+            "______|_\n");
+            for (int i=0; i<word.length;i++){
+                System.out.print(" ");
+                System.out.print(display[i]);
+                System.out.print(" ");
+            }
+            System.out.println("\n");     
+        }
+        
+        //head, chest, arm 1, arm 2, leg 1
+        if(wrongGuessNum == 5){
+            System.out.print("\n"+
+            "  _____    Wrong guesses: " +
+            "\n" +
+            "  |   |    ");
+            for(String index: wrongGuesses){System.out.print(index);}
+            System.out.println(
+            "\n"+
+            "  o   |\n"+
+            " /|\\  |\n"+
+            " /    |\n"+
+            "______|_\n");
+            for (int i=0; i<word.length;i++){
+                System.out.print(" ");
+                System.out.print(display[i]);
+                System.out.print(" ");
+            }
+            System.out.println("\n");
+        }
+        
+        //head, chest, arm 1, arm 2, leg 1, leg 2
+        if(wrongGuessNum == 6){
+            System.out.print("\n"+
+            "  _____    Wrong guesses: " +
+            "\n" +
+            "  |   |    ");
+            for(String index: wrongGuesses){System.out.print(index);}
+            System.out.println(
+            "\n"+
+            "  o   |\n"+
+            " /|\\  |\n"+
+            " / \\  |\n"+
+            "______|_\n");
+            for (int i=0; i<word.length;i++){
+                System.out.print(" ");
+                System.out.print(display[i]);
+                System.out.print(" ");
+            }
+            System.out.println("\n");
+ 
+        }
+        
+      
+        
+        //WIN CHECK
+        int gameCount = 0;
+        for(int i = 0; i<word.length; i++){
+            if(word[i].equals(display[i])){
+            gameCount++;
+            }
+        }
+        if(gameCount == word.length){
+            System.out.println("You Win!");
+            gameRun = false;
+        }
+        
+        
+        //LOSE CHECK
+        if(wrongGuessNum==6){
+            System.out.print("\n" +"You Lose! The word was \"");
+            for(String x: word){System.out.print(x);}
+            System.out.print("\"");
+            gameRun = false;
+        }
+        
+        }//end of game loop
+    }
+}
